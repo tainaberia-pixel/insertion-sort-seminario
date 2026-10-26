@@ -1,0 +1,36 @@
+import java.util.Arrays;
+
+/**
+ * Implementação do algoritmo de ordenação Insertion Sort
+ * Disciplina: Programação / Estrutura de Dados
+ * @author [Tainá Beria]
+ * @version 1.0 — Outubro de 2026
+*/
+public class InsertionSort<T extends Comparable<T>> {
+    public void ordenar(T[] vetor) {
+        for (int i = 1; i < vetor.length; i++) {
+            T elementoAtual = vetor[i];
+            int j = i - 1;
+            while (j >= 0 && vetor[j].compareTo(elementoAtual) > 0) {
+                vetor[j + 1] = vetor[j];
+                j--;
+            }
+            vetor[j + 1] = elementoAtual;
+        }
+    }
+    public static void main(String[] args) {
+        InsertionSort<Integer> ordenador = new InsertionSort<>();
+        
+        Integer[] dados = {5, 3, 8, 4, 2, 7, 1, 6};
+        
+        System.out.println("Demonstração do Insertion Sort");
+        System.out.println("Antes de ordenar: " + Arrays.toString(dados));
+        
+        ordenador.ordenar(dados);
+        
+        System.out.println("Depois de ordenar: " + Arrays.toString(dados));
+        System.out.println("");
+    }
+}
+
+
